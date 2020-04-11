@@ -4,13 +4,13 @@ from __future__ import print_function
 __version__ = "1.2.0"
 
 
-def get_certificate(hostname, port, sername=None, timeout=None):
+def get_certificate(hostname, port, sername=None):
     import idna
     from socket import socket
     from OpenSSL import SSL
 
     sock = socket()
-    sock.settimeout(timeout)
+    sock.setblocking(True)
     sock.connect((hostname, port), )
     ctx = SSL.Context(SSL.SSLv23_METHOD)
     ctx.check_hostname = False
