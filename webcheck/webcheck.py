@@ -1,10 +1,10 @@
 # -*- coding: UTF-8 -*
 from __future__ import print_function
 
-__version__ = "1.0.0"
+__version__ = "1.2.0"
 
 
-def get_certificate(hostname, port, sername=None, timeout=5):
+def get_certificate(hostname, port, sername=None, timeout=None):
     import idna
     from socket import socket
     from OpenSSL import SSL
@@ -125,7 +125,7 @@ def main():
                 if offdays <= args.expire:
                     err = 'days %s' % offdays
             except Exception as e:
-                err = str(e)
+                err = str(e) or str(type(e).__name__)
             res['ssl'] = {
                 'title': 'ssl',
                 'error': err
@@ -143,7 +143,6 @@ def main():
                 'title': 'http',
                 'error': err
             }
-
         errors = list([u'%s(%s)' % (r['title'], r['error']) for r in res.values() if r['error']])
         results.append({
             'title': ud.get('title', url),
