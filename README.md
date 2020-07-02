@@ -1,4 +1,4 @@
-uniapi
+webcheck
 ===============
 A Web Site check tool.
 
@@ -16,11 +16,11 @@ python -m webcheck -h
 ```
 Check url
 ```bash
-python -m webcheck http://www.baidu.com
+python -m webcheck https://www.baidu.com
 ```
 Or check urls
 ```bash
-python -m webcheck http://www.baidu.com https://www.qq.com https://www.tt.com
+python -m webcheck https://www.baidu.com https://www.qq.com https://www.tt.com
 ```
 Or check urls store in a file(urls.txt)
 ```bash
